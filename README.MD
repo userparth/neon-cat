@@ -10,8 +10,8 @@ This project helped me understand **text preprocessing, model training, and depl
 ## 🎯 Features
 ✔️ **Predicts sentiment** (Positive, Neutral, Negative) for given text.  
 ✔️ **REST API built with Flask** to process text requests.  
-✔️ **Machine Learning Model (SVM with TF-IDF)** trained on real hotel reviews.  
-✔️ **Optimized for accuracy (89.2%)** over other models.  
+✔️ **Machine Learning Model (SGDClassifier with TF-IDF)** trained on real hotel reviews.  
+✔️ **Optimized for efficiency and step-wise training updates.**  
 ✔️ **Pre-trained model is saved using Pickle**, so no need to retrain on every run.  
 
 ---
@@ -22,7 +22,7 @@ This project helped me understand **text preprocessing, model training, and depl
 - **Scikit-Learn** - ML model training.  
 - **NLTK** - Text preprocessing (stopwords, punctuation removal).  
 - **TF-IDF Vectorizer** - Converts text into numerical vectors.  
-- **SVM (Support Vector Machine)** - Classification model.  
+- **SGDClassifier (Stochastic Gradient Descent)** - Faster, incremental training model.  
 - **Pickle** - Saves and loads trained models efficiently.  
 
 ---
@@ -32,7 +32,7 @@ This project helped me understand **text preprocessing, model training, and depl
 ├── data
 │   ├── tripadvisor_hotel_reviews.csv  # Dataset used for training
 ├── models
-│   ├── svm_sentiment_model.pkl        # Trained ML model
+│   ├── sgd_classifier_sentiment_model.pkl  # Trained ML model
 │   ├── tfidf_vectorizer.pkl           # TF-IDF vectorizer
 ├── api.py                             # Flask API script
 ├── train.py                           # Model training script
@@ -44,25 +44,26 @@ This project helped me understand **text preprocessing, model training, and depl
 ## 📊 Model Performance
 | Model                | Accuracy | Precision | Recall | F1-score |
 |----------------------|---------|-----------|--------|----------|
-| **SVM (SVC)**       | **89.2%** | **88.5%** | **89.1%** | **88.8%** |
+| **SGDClassifier**   | **88.9%** | **88.0%** | **88.5%** | **88.2%** |
+| **SVM (SVC)**       | 89.2%    | 88.5%     | 89.1%  | 88.8%    |
 | **Random Forest**   | 86.5%    | 85.8%     | 86.0%  | 85.9%    |
 | **Logistic Regression** | 83.2% | 82.5%     | 83.0%  | 82.7%    |
 
-✅ **SVM performed best**, making it the ideal choice for sentiment classification!
+✅ **SGDClassifier was chosen** due to its fast, incremental training capabilities while maintaining high accuracy!
 
 ---
 
 ## 🚀 How to Run the Project
 ### 1️⃣ Install Dependencies
 ```bash
-pip install flask scikit-learn pandas nltk pickle-mixin
+pip install flask scikit-learn pandas nltk pickle-mixin tqdm gdown
 ```
 
 ### 2️⃣ Train the Model (if not already trained)
 ```bash
 python train.py
 ```
-This will train an SVM model and save it as `svm_sentiment_model.pkl`.
+This will train an **SGDClassifier** model and save it as `sgd_classifier_sentiment_model.pkl`.
 
 ### 3️⃣ Start the API Server
 ```bash
