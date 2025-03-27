@@ -1,6 +1,6 @@
 # Sentiment Analysis API - Machine Learning Project
 
-## 📌 Introduction
+## 📌 Overview
 Welcome to my **first machine learning project**! 🚀 I built a **Sentiment Analysis API** that predicts whether a review is **Positive, Neutral, or Negative** based on text input. This is not a chatbot—just an **ML-powered API** that analyzes text sentiment.
 
 This project helped me understand **text preprocessing, model training, and deployment** using Python and Flask. If you're new to ML, follow along to see what I learned! 😃
