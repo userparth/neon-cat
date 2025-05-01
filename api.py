@@ -4,6 +4,7 @@ import os
 import logging
 import subprocess
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 # Setup Logging
@@ -31,6 +32,7 @@ else:
 
 # Initialize Flask App
 app = Flask(__name__)
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 
 # Sentiment Prediction Route
